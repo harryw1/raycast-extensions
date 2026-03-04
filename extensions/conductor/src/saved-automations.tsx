@@ -152,9 +152,11 @@ function RunAutomationForm({
   );
 
   const handleSubmit = async (values: Record<string, string>) => {
-    await runAutomation(automation, values);
-    await onRan();
-    await popToRoot();
+    const ran = await runAutomation(automation, values);
+    if (ran) {
+      await onRan();
+      await popToRoot();
+    }
   };
 
   return (
