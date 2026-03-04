@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background Squircle -->
+  <defs>
+    <linearGradient id="bg_grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A189A"/>
+      <stop offset="1" stop-color="#3C096C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg_grad)"/>
+  
+  <!-- Subtle Scroll Base (AppleScript representation) -->
+  <g transform="translate(140, 140) scale(1.1)" opacity="0.15">
+    <path d="M 40 20 C 20 20 20 40 20 40 L 20 180 C 20 200 40 200 40 200 L 180 200 C 200 200 200 180 200 180 L 200 40 C 200 20 180 20 180 20 L 40 20 Z" fill="white" />
+    <path d="M 60 60 L 160 60 M 60 100 L 160 100 M 60 140 L 120 140" stroke="white" stroke-width="12" stroke-linecap="round" />
+  </g>
+
+  <!-- Conductor's Baton -->
+  <g filter="url(#shadow)">
+    <path d="M 120 392 L 392 120" stroke="#FFB703" stroke-width="28" stroke-linecap="round"/>
+    <path d="M 120 392 L 160 352" stroke="#E59500" stroke-width="28" stroke-linecap="round"/>
+    <!-- Tip Sparkle (AI representation) -->
+    <path d="M 392 120 L 430 82 M 392 120 L 354 158 M 392 120 L 430 158 M 392 120 L 354 82" stroke="#FFB703" stroke-width="16" stroke-linecap="round"/>
+    <!-- Small Extra Sparkles -->
+    <circle cx="430" cy="82" r="8" fill="#FFB703" />
+    <circle cx="354" cy="158" r="6" fill="#FFB703" opacity="0.6" />
+    <circle cx="392" cy="120" r="14" fill="#FFB703" />
+  </g>
+</svg>

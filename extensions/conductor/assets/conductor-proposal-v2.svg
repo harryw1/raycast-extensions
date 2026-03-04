@@ -1,0 +1,61 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg_grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A189A"/>
+      <stop offset="1" stop-color="#3C096C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="6" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg_grad)"/>
+
+  <!-- Main AppleScript Scroll -->
+  <g transform="translate(106, 86) scale(1.5)" filter="url(#shadow)">
+    <!-- Scroll Paper Body -->
+    <path d="M 30 20 
+             C 10 20 10 40 10 40 
+             L 10 180 
+             C 10 200 30 200 30 200 
+             L 170 200 
+             C 190 200 190 180 190 180 
+             L 190 40 
+             C 190 20 170 20 170 20 
+             Z" fill="#F8F9FA" />
+    
+    <!-- Stylized "S" / Script Lines -->
+    <path d="M 50 60 L 150 60 
+             M 50 100 L 150 100 
+             M 50 140 L 120 140" 
+          stroke="#5A189A" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Top Scroll Roll -->
+    <path d="M 30 20 C 30 5 170 5 170 20" fill="none" stroke="#DEE2E6" stroke-width="4" />
+  </g>
+
+  <!-- Conductor Baton (Secondary, interacting with scroll) -->
+  <g filter="url(#shadow)">
+    <!-- Baton stick -->
+    <path d="M 320 440 L 440 180" stroke="#FFB703" stroke-width="20" stroke-linecap="round"/>
+    
+    <!-- AI Sparkle at the tip of the baton -->
+    <g transform="translate(440, 180)">
+      <path d="M 0 -30 C 5 -10 10 -5 30 0 C 10 5 5 10 0 30 C -5 10 -10 5 -30 0 C -10 -5 -5 -10 0 -30 Z" fill="#FFB703" />
+      <circle cx="0" cy="0" r="10" fill="white" />
+    </g>
+    
+    <!-- Trailing Sparkles -->
+    <circle cx="410" cy="240" r="6" fill="#FFD60A" opacity="0.8" />
+    <circle cx="460" cy="220" r="4" fill="#FFD60A" opacity="0.6" />
+  </g>
+</svg>
