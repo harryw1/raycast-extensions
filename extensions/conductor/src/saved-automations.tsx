@@ -69,7 +69,7 @@ async function runAutomation(
       title: "Automation failed",
       message: result.error,
     });
-    return;
+    return false;
   }
 
   const now = new Date().toISOString();
