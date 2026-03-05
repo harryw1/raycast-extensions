@@ -36,7 +36,7 @@ function formatDate(iso?: string): string {
 async function runAutomation(
   automation: SavedAutomation,
   values: Record<string, string>,
-) {
+): Promise<boolean> {
   const finalScript = interpolateTemplate(automation.script, values);
   const finalExplanation = interpolateTemplate(automation.explanation, values);
 
@@ -54,7 +54,7 @@ async function runAutomation(
   });
 
   if (!approved) {
-    return;
+    return false;
   }
 
   await showToast({
@@ -86,6 +86,8 @@ async function runAutomation(
     title: "Automation completed",
     message: result.output,
   });
+
+  return true;
 }
 
 function SaveLastRunForm({ onSaved }: { onSaved: () => Promise<void> }) {
